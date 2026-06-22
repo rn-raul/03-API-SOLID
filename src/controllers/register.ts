@@ -3,6 +3,10 @@ import { z } from 'zod';
 import { UserAlreadyExistsError } from "@/use-cases/erros/user-already-exits";
 import { makeRegisterUseCase } from "@/use-cases/factories/make-register-use-case";
 
+
+// Controller função que recebe a request e reply do fastify, e chama o caso de uso de registro
+
+
 export async function register(request: FastifyRequest, reply: FastifyReply) {
     const registerBodySchema = z.object({
         name: z.string(),
