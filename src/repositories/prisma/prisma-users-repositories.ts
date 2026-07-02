@@ -4,6 +4,14 @@ import { UsersRepository } from "../users-repository";
 
 // Repository é onde há a conversa com o banco de dados.
 export class PrismaUsersRepository implements UsersRepository{
+    async findById(id: string){
+        const user = await prisma.user.findUnique({
+            where: {
+                id,
+            }
+        });
+        return user;
+    }
     async findByEmail(email: string) {
         const user = await prisma.user.findUnique({
             where: {
